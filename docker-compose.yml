@@ -26,7 +26,7 @@ services:
     tarocco-client:
         image: tarocco-client:production-latest
         volumes:
-            - ./html/tarocco.com:/app/client/build-out
+            - ./html/taroc.co:/app/client/build-out
     #tarocco-server:
     #    image: tarocco-server:production-latest
     #    restart: unless-stopped
@@ -34,7 +34,7 @@ services:
     tarocco-client-staging:
         image: tarocco-client:staging
         volumes:
-            - ./html/staging.tarocco.com:/app/client/build-out
+            - ./html/staging.taroc.co:/app/client/build-out
     #tarocco-server-staging:
     #    image: tarocco-server:staging
     #    restart: unless-stopped
