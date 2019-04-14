@@ -8,7 +8,9 @@ services:
             - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
             - ./nginx/conf.d:/etc/nginx/conf.d:ro
             - ./nginx/include:/etc/nginx/include:ro
-            - ./html:/var/www/html:ro
+            - ./html/taroc.co:/var/www/html/taroc.co:ro
+            - ./html/staging.taroc.co:/var/www/html/staging.taroc.co:ro
+            - ./html/static/:/var/www/html/static
             - ./log/nginx:/var/log/nginx
             - ./letsencrypt:/etc/letsencrypt:ro
         ports:
