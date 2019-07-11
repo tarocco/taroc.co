@@ -10,6 +10,7 @@ services:
             - ./nginx/include:/etc/nginx/include:ro
             - ./html/taroc.co:/var/www/html/taroc.co:ro
             - ./html/staging.taroc.co:/var/www/html/staging.taroc.co:ro
+            - ./html/staging.bunass.pro:/var/www/html/staging.bunass.pro:ro
             - ./html/media/:/var/www/html/media
             - ./log/nginx:/var/log/nginx
             - ./letsencrypt:/etc/letsencrypt:ro
