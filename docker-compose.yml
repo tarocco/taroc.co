@@ -40,3 +40,8 @@ services:
     #tarocco-server-staging:
     #    image: tarocco-server:staging
     #    restart: unless-stopped
+    
+    bunass-pro-client-staging:
+        image: bunass-pro-client:staging
+        volumes:
+            - ./html/staging.bunass.pro:/app/client/build-out
