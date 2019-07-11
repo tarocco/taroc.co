@@ -10,6 +10,7 @@ services:
             - ./nginx/include:/etc/nginx/include:ro
             - ./html/taroc.co:/var/www/html/taroc.co:ro
             - ./html/staging.taroc.co:/var/www/html/staging.taroc.co:ro
+            - ./html/bunass.pro:/var/www/html/bunass.pro:ro
             - ./html/staging.bunass.pro:/var/www/html/staging.bunass.pro:ro
             - ./html/media/:/var/www/html/media
             - ./log/nginx:/var/log/nginx
@@ -42,6 +43,11 @@ services:
     #    image: tarocco-server:staging
     #    restart: unless-stopped
     
+    bunass-pro-client:
+        image: bunass-pro-client:production-latest
+        volumes:
+            - ./html/bunass.pro:/app/client/build-out
+
     bunass-pro-client-staging:
         image: bunass-pro-client:staging
         volumes:
