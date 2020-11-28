@@ -66,9 +66,6 @@ services:
             - ./db-data:/var/lib/postgresql/data
         restart: unless-stopped
     jewel-bug-staging:
-        build:
-            context: .
-            dockerfile: ./Dockerfile
         ports:
             - "8000:8000"
         depends_on:
