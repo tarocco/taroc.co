@@ -28,15 +28,15 @@ services:
             - "80:80"
         restart: unless-stopped
     tarocco-client:
-        image: tarocco-client:production-latest
+        image: tarocco-app-client:latest
         volumes:
             - ./html/taroc.co:/app/client/build-out
     #tarocco-server:
-    #    image: tarocco-server:production-latest
+    #    image: tarocco-server:latest
     #    restart: unless-stopped
 
     tarocco-client-staging:
-        image: tarocco-client:staging
+        image: tarocco-app-client:staging
         volumes:
             - ./html/staging.taroc.co:/app/client/build-out
     #tarocco-server-staging:
@@ -44,41 +44,41 @@ services:
     #    restart: unless-stopped
     
     bunass-pro-client:
-        image: bunass-pro-client:production-latest
+        image: bunass-pro-app-client:latest
         volumes:
             - ./html/bunass.pro:/app/client/build-out
 
-    bunass-pro-client-staging:
-        image: bunass-pro-client:staging
-        volumes:
-            - ./html/staging.bunass.pro:/app/client/build-out
-    db:
-        image: postgres:9.6
-        expose:
-            - "5432"
-        ports:
-            - "5432:5432" # For debugging
-        environment:
-            - POSTGRES_DB=${POSTGRES_DB}
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-        volumes:
-            - ./db-data:/var/lib/postgresql/data
-        restart: unless-stopped
-    jewel-bug-staging:
-        image: jewelbug:staging
-        ports:
-            - "8000:8000"
-        depends_on:
-            - db
-        environment:
-            - DJANGO_SETTINGS_MODULE=jewelbug.settings.local
-            - DJANGO_DEBUG=on
-            - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
-            - POSTGRES_HOST=db
-            - POSTGRES_DB=${POSTGRES_DB}
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-        volumes:
-            - ./media:/app/media
-        restart: unless-stopped
+    # bunass-pro-client-staging:
+    #     image: bunass-pro-app-client:staging
+    #     volumes:
+    #         - ./html/staging.bunass.pro:/app/client/build-out
+    # db:
+    #     image: postgres:9.6
+    #     expose:
+    #         - "5432"
+    #     ports:
+    #         - "5432:5432" # For debugging
+    #     environment:
+    #         - POSTGRES_DB=${POSTGRES_DB}
+    #         - POSTGRES_USER=${POSTGRES_USER}
+    #         - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    #     volumes:
+    #         - ./db-data:/var/lib/postgresql/data
+    #     restart: unless-stopped
+    # jewel-bug-staging:
+    #     image: jewelbug:staging
+    #     ports:
+    #         - "8000:8000"
+    #     depends_on:
+    #         - db
+    #     environment:
+    #         - DJANGO_SETTINGS_MODULE=jewelbug.settings.local
+    #         - DJANGO_DEBUG=on
+    #         - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+    #         - POSTGRES_HOST=db
+    #         - POSTGRES_DB=${POSTGRES_DB}
+    #         - POSTGRES_USER=${POSTGRES_USER}
+    #         - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    #     volumes:
+    #         - ./media:/app/media
+    #     restart: unless-stopped

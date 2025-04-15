@@ -1,4 +1,4 @@
-.env
-.env.d/
+*.env
+*.env.d/
 log/
 letsencrypt/
